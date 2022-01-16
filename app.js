@@ -1,5 +1,8 @@
 var minutes = 2, the_interval = minutes * 60 * 1000;
 setInterval(function() {
-  console.log("I am doing my 5 minutes check");
+
+  console.log("LOOK...I am doing my X minutes check");
   // do your stuff here
+
+
 }, the_interval);
