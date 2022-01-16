@@ -44,6 +44,7 @@ setInterval(() => {
 
     console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
 
+    // use testing API key in postman next and change API URL next..
     axios.get('https://api.opensea.io/api/v1/events', {
         headers: {
             'X-API-KEY': process.env.X_API_KEY

@@ -5,9 +5,9 @@ const { ethers } = require('ethers');
 // const tweet = require('./tweet');
 const cache = require('./cache');
 
-console.log("LOOK v7 !!!!!!!!!!!!!!!!!!!!!!");
+console.log("LOOK v8 !!!!!!!!!!!!!!!!!!!!!!");
 
-var minutes = 5, the_interval = minutes * 60 * 1000;
+var minutes = 60, the_interval = minutes * 60 * 1000;
 setInterval(function() {
 
   console.log("LOOK...I am doing my X minutes check");
