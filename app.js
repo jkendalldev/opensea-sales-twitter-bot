@@ -1,11 +1,11 @@
 const axios = require('axios');
-// const _ = require('lodash');
-// const moment = require('moment');
-// const { ethers } = require('ethers');
+const _ = require('lodash');
+const moment = require('moment');
+const { ethers } = require('ethers');
 // const tweet = require('./tweet');
 // const cache = require('./cache');
 
-console.log("LOOK V3 !!!!!!!!!!!!!!!!!!!!!!");
+console.log("LOOK V4 !!!!!!!!!!!!!!!!!!!!!!");
 
 var minutes = 1, the_interval = minutes * 60 * 1000;
 setInterval(function() {
