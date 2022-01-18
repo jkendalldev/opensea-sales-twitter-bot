@@ -5,8 +5,7 @@ const { ethers } = require('ethers');
 // const tweet = require('./tweet');
 const cache = require('./cache');
 
-console.log("LOOK - EXITING NOW!!!!!!!!!!!!!!");
-process.exit();
+console.log("LOOK - RUNNING !!!!!!!!!!!!!!");
 
 
 // HELLO WORLD TEST CODE
