@@ -5,6 +5,10 @@ const { ethers } = require('ethers');
 // const tweet = require('./tweet');
 const cache = require('./cache');
 
+console.log("LOOK - EXITING NOW!!!!!!!!!!!!!!");
+process.exit();
+
+
 // HELLO WORLD TEST CODE
 // console.log("LOOK v8 !!!!!!!!!!!!!!!!!!!!!!");
 // var minutes = 60, the_interval = minutes * 60 * 1000;
@@ -52,6 +56,10 @@ function formatAndSendTweet(event) {
 
 // Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
 setInterval(() => {
+
+// figure out a way to do this that makes more sense, maybe use postgres db?
+
+while     
     const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
 
     console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
@@ -93,4 +101,7 @@ setInterval(() => {
     }).catch((error) => {
         console.error(error);
     });
+
+
+
 }, 60000);
