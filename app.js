@@ -57,7 +57,9 @@ setInterval(() => {
     console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
 
     // use testing API key in postman next and change API URL next..
-    axios.get('https://api.opensea.io/api/v1/events', {
+    // https://testnets-api.opensea.io/api/v1/events?collection_slug=ruthless-raccoons&event_type=successful&only_opensea=false&occurred_after=2022-01-01T18:45:40&token_id=25&asset_contract_address=0x34c06aee75d6aa530a8521e8323f2813f3cfcb1a
+    // axios.get('https://api.opensea.io/api/v1/events', {
+    axios.get('https://testnets-api.opensea.io/api/v1/events', {
         headers: {
             'X-API-KEY': process.env.X_API_KEY
         },
