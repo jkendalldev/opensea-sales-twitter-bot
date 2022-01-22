@@ -16,7 +16,7 @@ axios.get('https://testnets-api.opensea.io/api/v1/events', {
     token_id: '845'
     }
     }).then((response) => {
-      const events = _.get(response, ['data', 'asset_events']);
+      const events = _.get(response, ['asset_events']);
       console.log(`${events}`);
     })
 
