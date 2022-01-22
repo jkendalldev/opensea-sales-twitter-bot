@@ -18,7 +18,7 @@ axios.get('https://testnets-api.opensea.io/api/v1/events', {
     token_id: '845'
   }
 }).then(response => {
-    console.log(response.data);
+    console.log(response);
 });
 
 /*
