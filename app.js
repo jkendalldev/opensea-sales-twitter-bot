@@ -45,6 +45,7 @@ params: {
         console.log(`EACH LOOP created ... ${created}`);
         cache.set('lastSaleTime', moment(created).unix());
         console.log(`EACH LOOP ... LAST SALE TIME: ${lastSaleTime}`);
+        console.log("TWEEEEEEEEEEEEEEEEETING NOW !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         // return formatAndSendTweet(event);
     });
 // });
