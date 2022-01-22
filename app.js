@@ -17,8 +17,9 @@ axios.get('https://testnets-api.opensea.io/api/v1/events', {
     }
     }).then((response) => {
       const events = _.get(response, ['data', 'asset_events']);
+      console.log(`${events}`);
     })
-console.log(`${events}`);
+
 
 
 console.log("LOOK - STOP RUNNING!!!");
