@@ -22,7 +22,14 @@ params: {
   }
 }).then(response => {
     const events = _.get(response, ['data', 'asset_events']);
-    console.log(events);
+    // console.log(events);
+    
+    const sortedEvents = _.sortBy(events, function(event) {
+      const created = _.get(event, 'created_date');
+      console.log("CREATED ON...");
+        // return new Date(created);
+    })
+
 });
 
 
