@@ -39,8 +39,8 @@ params: {
     _.each(sortedEvents, (event) => {
         const created = _.get(event, 'created_date');
         console.log(`EACH LOOP created ... ${created}`);
-        // cache.set('lastSaleTime', moment(created).unix());
-        // console.log(`LAST SALE TIME: ${lastSaleTime}`);
+        cache.set('lastSaleTime', moment(created).unix());
+        console.log(`EACH LOOP ... LAST SALE TIME: ${lastSaleTime}`);
         // return formatAndSendTweet(event);
     });
     
