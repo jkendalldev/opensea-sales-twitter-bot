@@ -5,7 +5,10 @@ const { ethers } = require('ethers');
 // const tweet = require('./tweet');
 const cache = require('./cache');
 
-console.log("START START START START START START START START!");
+// Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
+setInterval(() => {
+
+console.log("TOP OF setInterval LOOP...");
 
 const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
@@ -44,10 +47,12 @@ params: {
         console.log(`EACH LOOP ... LAST SALE TIME: ${lastSaleTime}`);
         // return formatAndSendTweet(event);
     });
-    
+// });
 
+}).catch((error) => {
+    console.error(error);
 });
+}, 60000);
 
-
-console.log("FINISH FINISH FINISH FINISH FINISH FINISH FINISH!");
+// console.log("FINISH FINISH FINISH FINISH FINISH FINISH FINISH!");
     
