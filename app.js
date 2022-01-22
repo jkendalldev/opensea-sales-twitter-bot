@@ -33,6 +33,13 @@ params: {
 
     console.log(`${events.length} sales since the last one...`);
 
+    _.each(sortedEvents, (event) => {
+        const created = _.get(event, 'created_date');
+        cache.set('lastSaleTime', moment(created).unix());
+        console.log(`LAST SALE TIME: ${lastSaleTime}`);
+        // return formatAndSendTweet(event);
+    });
+
 });
 
 
