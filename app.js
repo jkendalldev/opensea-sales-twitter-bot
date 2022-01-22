@@ -30,7 +30,8 @@ axios.get('https://testnets-api.opensea.io/api/v1/events', {
 params: {
     event_type: 'successful',
     only_opensea: 'false',
-    collection_slug: 'clonex-mfz9ecb4mm',
+    // collection_slug: 'clonex-mfz9ecb4mm',
+    collection_slug: 'jlkcollection',
     occurred_after: lastSaleTime
     // asset_contract_address: '0x3ec9c3cb29ed95a396a48a4fbdb6b8546d001d5a',
     // token_id: '845'
