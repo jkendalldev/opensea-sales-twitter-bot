@@ -8,7 +8,15 @@ const cache = require('./cache');
 // Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
 setInterval(() => {
 
+console.log('\n');
+console.log('\n');
+console.log('\n');
 console.log("TOP OF setInterval LOOP...");
+console.log('\n');
+console.log('\n');
+console.log('\n');
+
+// so what happens with the API call when lastSaleTime is "undefined"?
 
 const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
