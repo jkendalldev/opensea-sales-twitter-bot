@@ -31,6 +31,8 @@ params: {
       return new Date(created);
     })
 
+    console.log(`${events.length} sales since the last one...`);
+
 });
 
 
