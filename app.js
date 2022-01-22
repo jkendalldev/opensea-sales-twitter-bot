@@ -7,7 +7,6 @@ const cache = require('./cache');
 
 console.log("LOOK - START RUNNING!!!");
 
-/*
 axios.get('https://testnets-api.opensea.io/api/v1/events', {
   params: {
     event_type: 'successful',
@@ -20,7 +19,7 @@ axios.get('https://testnets-api.opensea.io/api/v1/events', {
       const events = _.get(response, ['data', 'asset_events']);
     })
 console.log(`${events}`);
-*/
+
 
 console.log("LOOK - STOP RUNNING!!!");
     
