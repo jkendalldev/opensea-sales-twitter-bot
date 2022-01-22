@@ -9,6 +9,7 @@ console.log("START START START START START START START START!");
 
 const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
+console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
 
 
 axios.get('https://testnets-api.opensea.io/api/v1/events', {
