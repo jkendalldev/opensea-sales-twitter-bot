@@ -26,9 +26,9 @@ params: {
     
     const sortedEvents = _.sortBy(events, function(event) {
       const created = _.get(event, 'created_date');
+      return new Date(created);
       console.log("CREATED ON...");
       console.log(created);
-        // return new Date(created);
     })
 
 });
