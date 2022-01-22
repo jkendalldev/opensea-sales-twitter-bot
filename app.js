@@ -7,6 +7,8 @@ const cache = require('./cache');
 
 console.log("START START START START START START START START!");
 
+const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
+console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
 
 
 axios.get('https://testnets-api.opensea.io/api/v1/events', {
@@ -33,12 +35,14 @@ params: {
 
     console.log(`${events.length} sales since the last one...`);
 
+    /*
     _.each(sortedEvents, (event) => {
         const created = _.get(event, 'created_date');
         cache.set('lastSaleTime', moment(created).unix());
         console.log(`LAST SALE TIME: ${lastSaleTime}`);
         // return formatAndSendTweet(event);
     });
+    */
 
 });
 
