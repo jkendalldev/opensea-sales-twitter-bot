@@ -24,7 +24,7 @@ const client = new TwitterApi({
 console.log("LOOK, I GOT PAST SETTING UP MY TWITTER OBJECT !!!!");
 
 // Read a tweet!
-
+/*
 client.v2.singleTweet('1483205704303333377', {
     'tweet.fields': [
         'created_at',
@@ -34,6 +34,13 @@ client.v2.singleTweet('1483205704303333377', {
 }).catch((err) => {
     console.log(err)
 })
+*/
+
+// Create a new tweet!
+const { data: createdTweet } = await client.v2.tweet('PIXA-BUILDER BOT Says twitter-api-v2 is awesome!', {
+    poll: { duration_minutes: 120, options: ['Absolutely', 'For sure!'] },
+  });
+  console.log('Tweet', createdTweet.id, ':', createdTweet.text);
 
 /*
 // Format tweet text
