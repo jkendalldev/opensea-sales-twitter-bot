@@ -13,14 +13,16 @@ const {TwitterApi} = require('twitter-api-v2');
 
 console.log("LOOK, I GOT PAST REQUIRING THE twitter-api-v2 module !!!!");
 
-/*
+
 const client = new TwitterApi({
     appKey: process.env.CONSUMER_KEY,
     appSecret: process.env.CONSUMER_SECRET,
     accessToken: process.env.ACCESS_TOKEN_KEY,
     accessSecret: process.env.ACCESS_TOKEN_SECRET,
 });
-*/
+
+console.log("LOOK, I GOT PAST SETTING UP MY TWITTER OBJECT !!!!");
+
 
 
 /*
