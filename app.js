@@ -23,7 +23,17 @@ const client = new TwitterApi({
 
 console.log("LOOK, I GOT PAST SETTING UP MY TWITTER OBJECT !!!!");
 
+// Read a tweet!
 
+client.v2.singleTweet('1483205704303333377', {
+    'tweet.fields': [
+        'organic_metrics',
+     ],
+  }).then((val) => {
+    console.log(val)
+}).catch((err) => {
+    console.log(err)
+})
 
 /*
 // Format tweet text
