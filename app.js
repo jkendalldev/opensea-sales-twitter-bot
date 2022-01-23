@@ -36,11 +36,41 @@ client.v2.singleTweet('1483205704303333377', {
 })
 */
 
+async function myfunction() {
+    console.log('Inside of myfunction');
+  }
+  // Here we wait for the myfunction to finish
+  // and then returns a promise that'll be waited for aswell
+  // It's useless to wait the myfunction to finish before to return
+  // we can simply returns a promise that will be resolved later
+  
+  // Also point that we don't use async keyword on the function because
+  // we can simply returns the promise returned by myfunction
+  function start() {
+    return myfunction();
+  }
+  
+  // Call start
+  (async() => {
+    console.log('before start');
+  
+    await start();
+    
+    console.log('after start');
+  })();
+
+
+/*
 // Create a new tweet!
 const { data: createdTweet } = await client.v2.tweet('PIXA-BUILDER BOT Says twitter-api-v2 is awesome!', {
     poll: { duration_minutes: 120, options: ['Absolutely', 'For sure!'] },
   });
-  console.log('Tweet', createdTweet.id, ':', createdTweet.text);
+
+console.log('Tweet', createdTweet.id, ':', createdTweet.text);
+*/
+
+
+
 
 /*
 // Format tweet text
