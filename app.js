@@ -27,7 +27,7 @@ console.log("LOOK, I GOT PAST SETTING UP MY TWITTER OBJECT !!!!");
 
 client.v2.singleTweet('1483205704303333377', {
     'tweet.fields': [
-        'organic_metrics',
+        'created_at',
      ],
   }).then((val) => {
     console.log(val)
