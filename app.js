@@ -37,8 +37,14 @@ client.v2.singleTweet('1483205704303333377', {
 */
 
 async function myfunction() {
-    console.log('Inside of myfunction');
+  // console.log('Inside of myfunction');
+  const { data: createdTweet } = await client.v2.tweet('PIXA-BUILDER BOT Says twitter-api-v2 is awesome!', {
+    poll: { duration_minutes: 120, options: ['Absolutely', 'For sure!'] },
+  });
+
+  console.log('Tweet', createdTweet.id, ':', createdTweet.text);
   }
+  
   // Here we wait for the myfunction to finish
   // and then returns a promise that'll be waited for aswell
   // It's useless to wait the myfunction to finish before to return
@@ -58,17 +64,6 @@ async function myfunction() {
     
     console.log('after start');
   })();
-
-
-/*
-// Create a new tweet!
-const { data: createdTweet } = await client.v2.tweet('PIXA-BUILDER BOT Says twitter-api-v2 is awesome!', {
-    poll: { duration_minutes: 120, options: ['Absolutely', 'For sure!'] },
-  });
-
-console.log('Tweet', createdTweet.id, ':', createdTweet.text);
-*/
-
 
 
 
