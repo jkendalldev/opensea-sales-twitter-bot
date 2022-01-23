@@ -17,7 +17,7 @@
         "ethers": "^5.3.1",
         "lodash": "^4.17.21",
         "moment": "^2.29.1",
-        "twitter-v2": "^1.1.0"
+        "twitter-api-v2": "1.9.1"
     },
     "engines": {
         "node": "14.15.4"

@@ -5,39 +5,22 @@ const { ethers } = require('ethers');
 // const tweet = require('./tweet'); // old v1 tweet library
 const cache = require('./cache');
 // new v2 tweet library
-const Twitter = require('twitter-v2');
+const Twitter = require('twitter-api-v2');
 
-const twitterClient = new Twitter({
-    consumer_key: process.env.CONSUMER_KEY,
-    consumer_secret: process.env.CONSUMER_SECRET,
-    access_token_key: process.env.ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET,
-  });
+// npm i twitter-api-v2
 
+const {TwitterApi} = require('twitter-api-v2');
 
-tweetdata = twitterClient.get('tweets', { ids: '1485043692780015619' });
-console.log(tweetdata);
+console.log("LOOK, I GOT PAST REQUIRING THE twitter-api-v2 module !!!!");
 
-
-/* REMOVE LATER...
-const twitConfig = {
-    consumer_key: process.env.CONSUMER_KEY,
-    consumer_secret: process.env.CONSUMER_SECRET,
-    access_token: process.env.ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET,
-};
-console.log(twitConfig);
+/*
+const client = new TwitterApi({
+    appKey: process.env.CONSUMER_KEY,
+    appSecret: process.env.CONSUMER_SECRET,
+    accessToken: process.env.ACCESS_TOKEN_KEY,
+    accessSecret: process.env.ACCESS_TOKEN_SECRET,
+});
 */
-
-
-
-
-// Define v2 tweet function...Just make a simple tweet from here...
-
-// Just read test_event.json file and echo it out...
-
-// Pass test_event.json contents to formatAndSendTweet...
-
 
 
 /*
