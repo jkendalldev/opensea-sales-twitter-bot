@@ -6,26 +6,29 @@ const { ethers } = require('ethers');
 const cache = require('./cache');
 // new v2 tweet library
 const Twitter = require('twitter-v2');
-/*
+
 const client = new Twitter({
     consumer_key: process.env.CONSUMER_KEY,
     consumer_secret: process.env.CONSUMER_SECRET,
     access_token_key: process.env.ACCESS_TOKEN_KEY,
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
   });
-*/
 
+const { data } = await client.get('tweets', { ids: '1485043692780015619' });
+console.log(data);
+
+
+/* REMOVE LATER...
 const twitConfig = {
     consumer_key: process.env.CONSUMER_KEY,
     consumer_secret: process.env.CONSUMER_SECRET,
     access_token: process.env.ACCESS_TOKEN_KEY,
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
 };
-
 console.log(twitConfig);
-  
-// const { data } = await client.get('tweets', { ids: '1228393702244134912' });
-// console.log(data);
+*/
+
+
 
 
 // Define v2 tweet function...Just make a simple tweet from here...
