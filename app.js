@@ -81,6 +81,8 @@ params: {
         cache.set('lastSaleTime', moment(created).unix());
         console.log(`EACH LOOP ... LAST SALE TIME: ${lastSaleTime}`);
         console.log("TWEEEEEEEEEEEEEEEEETING NOW !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        console.log("BELOW IS THE EVENT ITSELF........................................");
+        console.log(event);
         // return formatAndSendTweet(event);
     });
 
