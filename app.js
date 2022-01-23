@@ -14,10 +14,9 @@ const twitterClient = new Twitter({
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
   });
 
-const { data } = twitterClient.get('tweets', { ids: '1485043692780015619' });
-console.log(data);
 
-
+tweetdata = twitterClient.get('tweets', { ids: '1485043692780015619' });
+console.log(tweetdata);
 
 
 /* REMOVE LATER...
