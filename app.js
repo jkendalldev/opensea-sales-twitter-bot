@@ -2,8 +2,38 @@ const axios = require('axios');
 const _ = require('lodash');
 const moment = require('moment');
 const { ethers } = require('ethers');
-// const tweet = require('./tweet');
+// const tweet = require('./tweet'); // old v1 tweet library
 const cache = require('./cache');
+// new v2 tweet library
+const Twitter = require('twitter-v2');
+/*
+const client = new Twitter({
+    consumer_key: process.env.CONSUMER_KEY,
+    consumer_secret: process.env.CONSUMER_SECRET,
+    access_token_key: process.env.ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.ACCESS_TOKEN_SECRET,
+  });
+*/
+const twitConfig({
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET,
+});
+
+console.log(twitConfig);
+  
+// const { data } = await client.get('tweets', { ids: '1228393702244134912' });
+// console.log(data);
+
+
+// Define v2 tweet function...Just make a simple tweet from here...
+
+// Just read test_event.json file and echo it out...
+
+// Pass test_event.json contents to formatAndSendTweet...
+
+
 
 /*
 // Format tweet text
@@ -40,13 +70,14 @@ function formatAndSendTweet(event) {
 }
 */
 
+
+/* UNCOMMENT ALL THIS CODE LATER...
+
 // Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
 setInterval(() => {
-
 const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
 console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
-
 
 axios.get('https://testnets-api.opensea.io/api/v1/events', {
 // headers: {
@@ -91,5 +122,4 @@ params: {
 });
 }, 60000);
 
-
-    
+*/
