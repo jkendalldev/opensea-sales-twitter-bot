@@ -82,15 +82,17 @@ const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
 console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
 
-axios.get('https://testnets-api.opensea.io/api/v1/events', {
-// headers: {
-  // 'X-API-KEY': process.env.X_API_KEY
-// },  
+// axios.get('https://testnets-api.opensea.io/api/v1/events', {
+axios.get('https://api.opensea.io/api/v1/events', {
+headers: {
+  'X-API-KEY': process.env.X_API_KEY
+},  
 params: {
     event_type: 'successful',
     only_opensea: 'false',
     // collection_slug: 'clonex-mfz9ecb4mm',
-    collection_slug: 'jlkcollection',
+    // collection_slug: 'jlkcollection',
+    collection_slug: 'pixawitches',
     occurred_after: lastSaleTime
     // asset_contract_address: '0x3ec9c3cb29ed95a396a48a4fbdb6b8546d001d5a',
     // token_id: '845'
