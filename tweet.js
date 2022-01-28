@@ -1,6 +1,57 @@
-const axios = require('axios');
-const twit = require('twit');
+// const axios = require('axios');
+// const twit = require('twit');
 
+// new v2 tweet library
+// const Twitter = require('twitter-api-v2');
+// npm i twitter-api-v2
+const {TwitterApi} = require('twitter-api-v2');
+
+console.log("LOOK, I GOT PAST REQUIRING THE twitter-api-v2 module !!!!");
+
+
+const client = new TwitterApi({
+    appKey: process.env.CONSUMER_KEY,
+    appSecret: process.env.CONSUMER_SECRET,
+    accessToken: process.env.ACCESS_TOKEN_KEY,
+    accessSecret: process.env.ACCESS_TOKEN_SECRET,
+});
+
+console.log("LOOK, tweet.js ... I GOT PAST SETTING UP MY TWITTER OBJECT !!!!");
+
+async function tweet(tweetText) {
+  // console.log('Inside of myfunction');
+  // const { data: createdTweet } = await client.v2.tweet('PIXA-BUILDER BOT Says twitter-api-v2 is awesome JAN 28!', {
+  // const { data: createdTweet } = await client.v2.tweet('PIXA-BUILDER BOT Says twitter-api-v2 is awesome JAN 28!', {  
+    // poll: { duration_minutes: 120, options: ['Absolutely', 'For sure!'] },
+  // });
+
+  const { data: createdTweet } = await client.v2.tweet(tweetText);
+
+  console.log('Tweet', createdTweet.id, ':', createdTweet.text);
+  }
+
+  // Here we wait for the myfunction to finish
+  // and then returns a promise that'll be waited for aswell
+  // It's useless to wait the myfunction to finish before to return
+  // we can simply returns a promise that will be resolved later
+  // Also point that we don't use async keyword on the function because
+  // we can simply returns the promise returned by myfunction
+  
+  // function start() {
+    // return tweet();
+  // }
+  
+  // Call start
+  // (async() => {
+    // console.log('before start');
+    // await start();
+    // console.log('after start');
+  // })();
+
+
+
+/*
+// below this line was already here for v1
 const twitterConfig = {
     consumer_key: process.env.CONSUMER_KEY,
     consumer_secret: process.env.CONSUMER_SECRET,
@@ -56,7 +107,11 @@ function getBase64(url) {
     return axios.get(url, { responseType: 'arraybuffer'}).then(response => Buffer.from(response.data, 'binary').toString('base64'))
 }
 
+*/
+
+
 module.exports = {
-    tweet: tweet,
-    tweetWithImage: tweetWithImage
+    tweet: tweet
+    // tweet: tweet,
+    // tweetWithImage: tweetWithImage
 };
