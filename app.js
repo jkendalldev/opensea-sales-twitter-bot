@@ -43,9 +43,9 @@ client.v2.singleTweet('1483205704303333377', {
 // start here ^^^ // this will give you a great way to TEST, once your TEST works, then 
 // figure out how to pass in the sales event JSON from the OPENSEA API CALL!
 
-let rawdata = fs.readFileSync(path.resolve(__dirname, 'test_event.json'));
-let testEvent = JSON.parse(rawdata);
-console.log(testEvent);
+// let rawdata = fs.readFileSync(path.resolve(__dirname, 'test_event.json'));
+// let testEvent = JSON.parse(rawdata);
+// console.log(testEvent);
 
 /* THIS ALL WORKS !!!
 async function myfunction() {
@@ -110,8 +110,6 @@ function formatAndSendTweet(event) {
 */
 
 
-/* UNCOMMENT ALL THIS CODE LATER...
-
 // Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
 setInterval(() => {
 const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
@@ -161,4 +159,3 @@ params: {
 });
 }, 60000);
 
-*/
