@@ -92,7 +92,8 @@ params: {
     only_opensea: 'false',
     // collection_slug: 'clonex-mfz9ecb4mm',
     // collection_slug: 'jlkcollection',
-    collection_slug: 'pixawitches',
+    // collection_slug: 'pixawitches',
+    collection_slug: 'pixawizards',
     occurred_after: lastSaleTime
     // asset_contract_address: '0x3ec9c3cb29ed95a396a48a4fbdb6b8546d001d5a',
     // token_id: '845'
