@@ -126,5 +126,5 @@ params: {
 }).catch((error) => {
     console.error(error);
 });
-}, 60000); // Need to change this to every 5mins instead of every 1 min.
+}, 300000); // Need to change this to every 5mins instead of every 1 min.
 
