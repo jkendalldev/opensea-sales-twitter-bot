@@ -74,7 +74,7 @@ async function myfunction() {
 */
 
 
-/*
+
 // Format tweet text
 function formatAndSendTweet(event) {
     // Handle both individual items + bundle sales
@@ -105,9 +105,10 @@ function formatAndSendTweet(event) {
     // const imageUrl = _.get(event, ['asset', 'image_url']);
     // return tweet.tweetWithImage(tweetText, imageUrl);
 
-    return tweet.tweet(tweetText);
+    // this needs to call twitter v2 api instead of v1...
+    // return tweet.tweet(tweetText);
 }
-*/
+
 
 
 // Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
@@ -151,7 +152,7 @@ params: {
         console.log("TWEEEEEEEEEEEEEEEEETING NOW !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         console.log("BELOW IS THE EVENT ITSELF........................................");
         console.log(event);
-        // return formatAndSendTweet(event);
+        return formatAndSendTweet(event);
     });
 
 }).catch((error) => {
