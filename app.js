@@ -78,7 +78,10 @@ function formatAndSendTweet(event) {
 
 // Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
 setInterval(() => {
-const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
+// original line below was set for 1mins:
+// const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
+// set this line to ~ every 5mins
+const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(299, "seconds").unix();
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
 console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
 
@@ -129,5 +132,5 @@ params: {
 }).catch((error) => {
     console.error(error);
 });
-}, 60000); // Need to change this to every 5mins instead of every 1 min.
+}, 300000); // Need to change this to every 5mins instead of every 1 min.
 
