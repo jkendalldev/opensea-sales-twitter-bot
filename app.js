@@ -81,7 +81,8 @@ setInterval(() => {
 // original line below was set for 1mins:
 // const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
 // set this line to ~ every 5mins
-const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(299, "seconds").unix();
+// we should be able to look back as far as we want in the moment().startOf side of the statement below...
+const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(12900, "seconds").unix();
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
 console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
 
