@@ -90,17 +90,19 @@ headers: {
 params: {
     event_type: 'successful',
     only_opensea: 'false',
+    collection_slug: 'pixawizards',
+    occurred_after: lastSaleTime
     // collection_slug: 'clonex-mfz9ecb4mm',
     // collection_slug: 'jlkcollection',
     // collection_slug: 'pixawitches',
-    collection_slug: 'pixawizards',
-    occurred_after: lastSaleTime
-    // asset_contract_address: '0x3ec9c3cb29ed95a396a48a4fbdb6b8546d001d5a',
-    // token_id: '845'
+    // occurred_after: '1643485561'
+    // asset_contract_address: '0xc6b0b290176aaab958441dcb0c64ad057cbc39a0',
+    // token_id: '869'
   }
 }).then(response => {
     const events = _.get(response, ['data', 'asset_events']);
-    // console.log(events);
+    // comment later..
+    console.log(events);
     
     const sortedEvents = _.sortBy(events, function(event) {
       const created = _.get(event, 'created_date');
@@ -126,5 +128,5 @@ params: {
 }).catch((error) => {
     console.error(error);
 });
-}, 300000); // Need to change this to every 5mins instead of every 1 min.
+}, 60000); // Need to change this to every 5mins instead of every 1 min.
 
