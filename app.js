@@ -102,6 +102,7 @@ params: {
 }).then(response => {
     const events = _.get(response, ['data', 'asset_events']);
     // comment later..
+    console.log("Printing out events if there were any from OpenSea API call...");
     console.log(events);
     
     const sortedEvents = _.sortBy(events, function(event) {
