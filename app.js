@@ -83,7 +83,8 @@ setInterval(() => {
 // set this line to ~ every 5mins
 // we should be able to look back as far as we want in the moment().startOf side of the statement below...
 // just have the bot look back for any sales made in last 24 hours and tweet about them if it finds any..
-const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(86400, "seconds").unix();
+// update moment startOf to only look back for 3600 seconds (1hour)
+const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(3600, "seconds").unix();
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
 console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
 
