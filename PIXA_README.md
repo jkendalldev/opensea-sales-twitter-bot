@@ -9,12 +9,11 @@ git push -u heroku master
 git push -u origin master
 heroku login
 heroku create
-heroku ps:scale web=1
+heroku ps:scale worker=1
+heroku ps:scale worker=0
 heroku open
 heroku logs --tail
 heroku ps
-heroku ps:scale web=0
-heroku ps:scale web=1
 heroku local web
 heroku addons:create papertrail
 heroku addons:docs papertrail
@@ -26,8 +25,6 @@ heroku config:set ACCESS_TOKEN_SECRET="<YOUR KEY HERE>"
 heroku config:set X_API_KEY="<YOUR KEY HERE>"
 heroku config
 $env:Path += $env:Path + 'C:\Program Files\heroku\bin'
-heroku ps:scale web=0
-heroku ps:scale worker=1
 
 
 ## Useful Links
