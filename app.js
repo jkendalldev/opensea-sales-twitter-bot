@@ -2,41 +2,8 @@ const axios = require('axios');
 const _ = require('lodash');
 const moment = require('moment');
 const { ethers } = require('ethers');
-// const tweet = require('./tweetV1.js.backup'); // old v1 tweet library
 const tweet = require('./tweet'); //  new v2 tweet library
 const cache = require('./cache');
-// new v2 tweet library
-// const Twitter = require('twitter-api-v2');
-// npm i twitter-api-v2
-// const {TwitterApi} = require('twitter-api-v2');
-
-// you can remove these later:
-// const fs = require('fs');
-// const path = require('path');
-
-
-// Read a tweet example!
-/*
-client.v2.singleTweet('1483205704303333377', {
-    'tweet.fields': [
-        'created_at',
-     ],
-  }).then((val) => {
-    console.log(val)
-}).catch((err) => {
-    console.log(err)
-})
-*/
-
-// START HERE, FIGURE OUT HOW TO SET JSON TEXT INLINE, OR BETTER YET READ IT IN FROM YOUR
-// .JSON FILE YOU SAVED.. READ THAT FILE INTO A VARIABLE AND JUST CONSOLE.LOG IT TO STDOUT !!!
-// start here ^^^ // this will give you a great way to TEST, once your TEST works, then 
-// figure out how to pass in the sales event JSON from the OPENSEA API CALL!
-
-// let rawdata = fs.readFileSync(path.resolve(__dirname, 'test_event.json'));
-// let testEvent = JSON.parse(rawdata);
-// console.log(testEvent);
-
 
 
 // Format tweet text
@@ -75,20 +42,12 @@ function formatAndSendTweet(event) {
 }
 
 
-
-// Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
+// Poll OpenSea every 30mins & retrieve all sales for a given collection in either the time since the last sale OR in the last 1 hour
 setInterval(() => {
-// original line below was set for 1mins:
-// const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
-// set this line to ~ every 5mins
-// we should be able to look back as far as we want in the moment().startOf side of the statement below...
-// just have the bot look back for any sales made in last 24 hours and tweet about them if it finds any..
-// update moment startOf to only look back for 3600 seconds (1hour)
 const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(3600, "seconds").unix();
 console.log(`******************** LAST SALE TIME: ${lastSaleTime}`);
 console.log(`Last sale (in seconds since Unix epoch): ${cache.get('lastSaleTime', null)}`);
 
-// axios.get('https://testnets-api.opensea.io/api/v1/events', {
 axios.get('https://api.opensea.io/api/v1/events', {
 headers: {
   'X-API-KEY': process.env.X_API_KEY
@@ -98,16 +57,9 @@ params: {
     only_opensea: 'false',
     collection_slug: 'pixawizards',
     occurred_after: lastSaleTime
-    // collection_slug: 'clonex-mfz9ecb4mm',
-    // collection_slug: 'jlkcollection',
-    // collection_slug: 'pixawitches',
-    // occurred_after: '1643485561'
-    // asset_contract_address: '0xc6b0b290176aaab958441dcb0c64ad057cbc39a0',
-    // token_id: '869'
   }
 }).then(response => {
     const events = _.get(response, ['data', 'asset_events']);
-    // comment later..
     console.log("Printing out events if there were any from OpenSea API call...");
     console.log(events);
     
@@ -126,8 +78,8 @@ params: {
         console.log(`EACH LOOP created ... ${created}`);
         cache.set('lastSaleTime', moment(created).unix());
         console.log(`EACH LOOP ... LAST SALE TIME: ${lastSaleTime}`);
-        console.log("TWEEEEEEEEEEEEEEEEETING NOW !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        console.log("BELOW IS THE EVENT ITSELF........................................");
+        console.log("SENDING TWEET NOW !!");
+        console.log("BELOW IS THE SALE EVENT INFO........................................");
         console.log(event);
         return formatAndSendTweet(event);
     });
@@ -135,5 +87,4 @@ params: {
 }).catch((error) => {
     console.error(error);
 });
-}, 1800000); // Need to change this to every 5mins instead of every 1 min.
-
+}, 1800000); // This is every 30mins
